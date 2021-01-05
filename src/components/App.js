@@ -168,18 +168,18 @@ function App() {
   return (
     <div id="main">
       <ul>
-        {states.map( (state, index) => (
-          <li key={index} onClick={() => handleClickState(state)}>
+        {states.map( (state, indexState) => (
+          <li key={`state${indexState+1}`} id={`state${indexState+1}`} onClick={() => handleClickState(state)}>
             {state.name}
             {state.name === selectedState ? 
             <ul>
-              {state.cities.map( (city) => (
-                <li key={`city${index}`} onClick={() => handleClickCity(city)}>
+              {state.cities.map( (city, indexCity) => (
+                <li key={`city${indexCity+1}`} id={`city${indexCity+1}`} onClick={() => handleClickCity(city)}>
                   {city.name}
                   {city.name === selectedCity ?
                   <ul>
-                    {city.towns.map( (town) => (
-                      <li>
+                    {city.towns.map( (town, indexTown) => (
+                      <li key={`town${indexTown+1}`} id={`town${indexTown+1}`}>
                         {town.name}
                       </li>
                     ))}
